@@ -1,4 +1,4 @@
-function Hello() {
+function Hello({ title, color, backgroundColor, children }) {
   /*
         JSX(JavaScript and XML)
         - JS 코드를 HTML 구조에 맞게 작성하기 위해 쓰는 문법.
@@ -14,23 +14,39 @@ function Hello() {
           반드시 2개를 넣어야 한다.
              => background-color 처럼 여러 단어의 속성은 카멜케이스로 작성한다. 자바스크립트라 마이너스(빼기) 로 인식되는것을 방지하기 위해서.
         - 이벤트 바인딩은 onClick처럼 카멜 케이스를 사용한다.
-        - jsx 도 JS 코드기에 변수에 저정할 수 있다. 예) 아래 element 변수     
+        - jsx 도 JS 코드기에 변수에 저정할 수 있다. 예) 아래 element 변수   
+        
+        파라미터 키(이름)값과 전달받을 변수명이 동일하면 하나만 쓸 수 있다.  예) 아래 참조..
+        style={{ color: color, backgoundColor: "#eee" }} ==> style={{ color, backgoundColor: "#eee" }} 쓸수 있다.
+
+        사용자 지정 컴포넌트의 여는 태그와 닫는 태그 사이의 내용(자식)은 props.children 으로 넘어온다.
+        props에 children 이 자동으로 포함되므로, 반드시 children 으로 사용해야함..(예약어임)
+        => 복잡한건 자식요소로 넣어라....
+
+        props 에서 넘겨주지 않는 값들을 디폴트 처리하고 싶으면... 컴포넌트명.defaultProps 를 사용해라
         */
-  const title = "Hello React";
+
+  //  console.log(props);
+  //   const { title } = props; // 비구조화 할당하기 위해서...{props.title} 사용하는걸 간략히 쓰고싶어서....
+  //const title = "Hello React";
   const element = <p>P태그입니다.</p>;
   return (
     <>
-      <div
-        style={{ color: "red", backgoundColor: "#eee" }}
-        onClick={() => alert("click")}
-      >
+      <div style={{ color, backgroundColor }} onClick={() => alert("click")}>
         {title + "!!!"}
       </div>
       {element}
       <p></p>
       <input type="text" />
+      {children}
     </>
   );
 }
+
+// property 가 updefined 되었을때, 즉 props 가 전달되어지지 않았을때, 기본 적용할 값들...
+Hello.defaultProps = {
+  title: "React",
+  color: "green",
+};
 
 export default Hello;
