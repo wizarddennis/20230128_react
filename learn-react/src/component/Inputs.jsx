@@ -12,8 +12,18 @@ function Inputs() {
       <p>
         {inputs.name} ({inputs.email})
       </p>
-      <input type="text" onChange={handleInputs} name="name" />
-      <input type="text" onChange={handleInputs} name="email" />
+      <input
+        type="text"
+        onChange={handleInputs}
+        name="name"
+        value={inputs.name}
+      />
+      <input
+        type="text"
+        onChange={handleInputs}
+        name="email"
+        value={inputs.email}
+      />
       <button onClick={reset}>초기화</button>
     </div>
   );
