@@ -26,7 +26,7 @@ function Todos() {
     dispatch({ test: "test" });
   }, []);
 
-  const handleCreate = () => {};
+  //const handleCreate = () => {};
 
   return (
     <div>
