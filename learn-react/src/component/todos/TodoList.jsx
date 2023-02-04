@@ -1,22 +1,21 @@
 // 할일들을 나열해주는 역할
 
-function TodoList() {
+function TodoList({ todos }) {
   return (
     <div>
       <ul>
-        <TodoItem />
-        <TodoItem />
-        <TodoItem />
-        <TodoItem />
+        {todos.map((todo) => (
+          <TodoItem todo={todo} />
+        ))}
       </ul>
     </div>
   );
 }
 
-function TodoItem() {
+function TodoItem({ todo }) {
   return (
     <li>
-      <span>해야할 일</span>
+      <span>{todo.text}</span>
       <button>삭제</button>
     </li>
   );
