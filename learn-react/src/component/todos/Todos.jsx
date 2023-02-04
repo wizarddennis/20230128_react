@@ -1,4 +1,4 @@
-import { useReducer, useEffect } from "react";
+import { useReducer, useEffect, useState, useRef, useCallback } from "react";
 //import Counter from "./Counter";
 import TodoCreate from "./TodoCreate";
 import TodoList from "./TodoList";
@@ -12,6 +12,10 @@ function reducer(state, action) {
       return [...state, { id: action.id, text: action.text, done: false }];
     case "remove":
       return state.filter((todo) => todo.id !== action.id);
+    case "toggle":
+      return state.map((todo) =>
+        todo.id === action.id ? { ...todo, done: !todo.done } : todo
+      );
 
     default:
       return state;
@@ -28,6 +32,10 @@ function Todos() {
   // 아래 컴포넌트 2에게 상태를 보내주려면...요 위치에서 선언해야 함.
   //useReducer(리듀서함수, 초기값) => 상태값, 디스패치 함수를 반환함.
   const [todos, dispatch] = useReducer(reducer, initialState);
+  const [text, setText] = useState("");
+  const handleText = (e) => setText(e.target.value);
+
+  const nextId = useRef(4);
 
   console.log(todos);
 
@@ -36,11 +44,28 @@ function Todos() {
   }, []);
 
   //const handleCreate = () => {};
+  const handleSubmit = useCallback(
+    (e) => {
+      e.preventDefault();
+      dispatch({ type: "create", id: nextId.current++, text });
+      setText("");
+    },
+    [text]
+  );
+
+  const handleRemove = useCallback((id) => {
+    if (window.confirm("삭제하시겠습니까?")) dispatch({ type: "remove", id });
+  }, []);
+
+  const handleToggle = useCallback(
+    (id) => dispatch({ type: "toggle", id }),
+    []
+  );
 
   return (
     <div>
-      <TodoCreate dispatch={dispatch} />
-      <TodoList todos={todos} dispatch={dispatch} />
+      <TodoCreate onChange={handleText} onSubmit={handleSubmit} text={text} />
+      <TodoList todos={todos} onRemove={handleRemove} onToggle={handleToggle} />
       {/* <Counter /> */}
     </div>
   );
