@@ -10,6 +10,9 @@ function reducer(state, action) {
   switch (action.type) {
     case "create":
       return [...state, { id: action.id, text: action.text, done: false }];
+    case "remove":
+      return state.filter((todo) => todo.id !== action.id);
+
     default:
       return state;
   }
@@ -37,7 +40,7 @@ function Todos() {
   return (
     <div>
       <TodoCreate dispatch={dispatch} />
-      <TodoList todos={todos} />
+      <TodoList todos={todos} dispatch={dispatch} />
       {/* <Counter /> */}
     </div>
   );
