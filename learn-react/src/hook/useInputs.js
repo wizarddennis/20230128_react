@@ -11,6 +11,7 @@ export function useInputs(initialForm) {
   };
 
   const handleReset = () => {
+    
     setForm(initialForm);
   };
 
