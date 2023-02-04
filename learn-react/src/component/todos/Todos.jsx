@@ -1,12 +1,18 @@
 import { useReducer, useEffect } from "react";
-import Counter from "./Counter";
+//import Counter from "./Counter";
 import TodoCreate from "./TodoCreate";
 import TodoList from "./TodoList";
 
 // reducer 함수의 return 값이 상태로 업데이트 된다.
 function reducer(state, action) {
   //   console.log(state, action);
-  return [...state, { id: 4, text: "테스트", done: false }];
+  //return [...state, { id: 4, text: "테스트", done: false }];
+  switch (action.type) {
+    case "create":
+      return [...state, { id: action.id, text: action.text, done: false }];
+    default:
+      return state;
+  }
 }
 
 const initialState = [
@@ -23,16 +29,16 @@ function Todos() {
   console.log(todos);
 
   useEffect(() => {
-    dispatch({ test: "test" });
+    // dispatch({ test: "test" });
   }, []);
 
   //const handleCreate = () => {};
 
   return (
     <div>
-      {/*<TodoCreate />
-      <TodoList todos={todos} /> */}
-      <Counter />
+      <TodoCreate dispatch={dispatch} />
+      <TodoList todos={todos} />
+      {/* <Counter /> */}
     </div>
   );
 }
