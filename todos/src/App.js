@@ -30,11 +30,11 @@ function App() {
     <div>
       <Container>
         <GlobalStyle />
-        {/* 
+
         <TodoHeader />
         <TodoList />
-  <TodoCreate /> */}
-        <Flex />
+        <TodoCreate />
+        {/*<Flex /> */}
       </Container>
     </div>
   );

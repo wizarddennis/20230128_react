@@ -4,6 +4,8 @@ function Flex() {
   return (
     <Container>
       <Item>ITEM</Item>
+      <Item>ITEM</Item>
+      <Item>ITEM</Item>
     </Container>
   );
 }

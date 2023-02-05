@@ -1,10 +1,11 @@
 import styled from "styled-components";
+import Button from "./Button";
 
 function TodoCreate() {
   return (
     <Container>
-      <input type="text" />
-      <button>등록</button>
+      <Input type="text" />
+      <Button text="Submit" />
     </Container>
   );
 }
@@ -17,7 +18,7 @@ const Input = styled.input`
   width: 100%;
   outline: none;
   border: 1px solid;
-  border-color: ${({ $theme }) => theme.colors.border};
+  border-color: ${({ theme }) => theme.colors.border};
 `;
 
 export default TodoCreate;
