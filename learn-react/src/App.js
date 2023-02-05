@@ -8,19 +8,20 @@ import "./App.css";
 //import { useState } from "react";
 import Todos from "./component/todos/Todos";
 import { TodoProvider, useTodoState } from "./context/todos";
+import EventPractice from "./component/todos/EventPractice";
 
-function App() {
-  const todos = useTodoState();
-  console.log(todos);
-  return (
-    <TodoProvider>
-      <Todos />
-    </TodoProvider>
-  );
-}
+// function App() {
+//   const todos = useTodoState();
+//   console.log(todos);
+//   return {
+//     /* <TodoProvider>
+//       <Todos />
+//     </TodoProvider>*/
+//   };
+// }
 
-// const App = () => {
-//   return <EventPractice />;
-// };
+const App = () => {
+  return <EventPractice />;
+};
 
 export default App;
