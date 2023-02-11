@@ -33,7 +33,7 @@ function Todos() {
       ------AXIOS 로 바꾸기 위해서 주석처리 ---END
 */
 
-      // 위에 여러줄은 아래처럼 짧게 할 수 있다.
+      // 위에 여러줄을 아래처럼 짧게 할 수 있다.
       const res = await axios.post("http://localhost:5000/todos", {
         text,
         done: false,
@@ -47,6 +47,13 @@ function Todos() {
     } catch (e) {
       console.log(e);
     }
+  };
+
+  const handleRemove = async (id) => {
+    const res = await axios.delete("http://localhost:5000/todos/" + id);
+
+    console.log(res);
+    await fetchData();
   };
 
   useEffect(() => {
@@ -65,7 +72,10 @@ function Todos() {
       </div>
       <ul>
         {todos.map((todo) => (
-          <li key={todo.id}>{todo.text}</li>
+          <li key={todo.id}>
+            {todo.text}{" "}
+            <button onClick={() => handleRemove(todo.id)}>삭제</button>
+          </li>
         ))}
       </ul>
     </div>
