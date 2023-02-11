@@ -46,6 +46,7 @@ function Todos() {
       await fetchData();
     } catch (e) {
       console.log(e);
+      alert(e.message);
     }
   };
 
@@ -53,6 +54,15 @@ function Todos() {
     const res = await axios.delete("http://localhost:5000/todos/" + id);
 
     console.log(res);
+    await fetchData();
+  };
+
+  const handleToggle = async (id, done) => {
+    const res = await axios.patch("http://localhost:5000/todos/" + id, {
+      done,
+    });
+
+    console.log(res.data);
     await fetchData();
   };
 
@@ -73,7 +83,12 @@ function Todos() {
       <ul>
         {todos.map((todo) => (
           <li key={todo.id}>
-            {todo.text}{" "}
+            <span
+              style={{ textDecoration: todo.done && "line-through" }}
+              onClick={() => handleToggle(todo.id, !todo.done)}
+            >
+              {todo.text}
+            </span>{" "}
             <button onClick={() => handleRemove(todo.id)}>삭제</button>
           </li>
         ))}
