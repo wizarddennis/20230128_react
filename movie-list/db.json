@@ -1,0 +1,71 @@
+{
+  "todos": [
+    {
+      "id": 1,
+      "text": "Todos 컴포넌트 만들기",
+      "done": true
+    },
+    {
+      "id": 2,
+      "text": "json-server로 api 연동 연습",
+      "done": false
+    },
+    {
+      "id": 3
+    },
+    {
+      "id": 4
+    },
+    {
+      "text": "ㅇㄴㄹㄷㅈㅁ",
+      "done": false,
+      "id": 5
+    },
+    {
+      "text": "ㅇㄴㄹㄷㅈㅁㄴㅇㄻ",
+      "done": false,
+      "id": 6
+    },
+    {
+      "text": "학교가자",
+      "done": false,
+      "id": 7
+    },
+    {
+      "text": "학교가자",
+      "done": false,
+      "id": 8
+    },
+    {
+      "text": "정말?????",
+      "done": false,
+      "id": 9
+    },
+    {
+      "text": "ㄴㅀㄷㅈ",
+      "done": false,
+      "id": 10
+    },
+    {
+      "text": "ㄷㄹㅈㅁㄹㅈㄷㅁ",
+      "done": false,
+      "id": 11
+    },
+    {
+      "text": "axios 를 사용하기",
+      "done": false,
+      "id": 12
+    },
+    {
+      "text": "axios 를 사용하기2",
+      "done": false,
+      "id": 13
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "name": "saek"
+    }
+  ]
+}
