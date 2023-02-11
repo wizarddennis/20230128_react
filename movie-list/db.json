@@ -26,5 +26,35 @@
       "id": 1,
       "name": "saek"
     }
+  ],
+  "posts": [
+    {
+      "id": 1,
+      "title": "제목입니다",
+      "body": "대충 글입니다.",
+      "author": "hbs9312"
+    },
+    {
+      "id": 2,
+      "title": "리엑트 어려워요",
+      "body": "정말 어려운가요???.",
+      "author": "hbs9312"
+    },
+    {
+      "id": 3,
+      "title": "집가고 싶을텐데",
+      "body": "주말엔 집에서 땡땡이",
+      "author": "hbs9312"
+    },
+    {
+      "title": "safsafseaw",
+      "body": "dfsafs",
+      "id": 4
+    },
+    {
+      "title": "하하하하",
+      "body": "왜 안되냐고요",
+      "id": 5
+    }
   ]
 }
